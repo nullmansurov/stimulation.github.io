@@ -126,3 +126,12 @@ function handleButtonPress(buttonId) {
 
 // Пример вызова startNotification для тестирования
 // startNotification(0); // Запуск стимулятора 1
+
+self.onmessage = function(e) {
+    console.log('Worker получил сообщение: ' + e.data);
+
+    // Симулируем выполнение задачи в фоне
+    setInterval(() => {
+        postMessage('Работа в фоновом режиме продолжается');
+    }, 1000);
+};
