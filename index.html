@@ -60,5 +60,22 @@
     });
 
 </script>
+
+<script>
+    if (window.Worker) {
+        const myWorker = new Worker('notification.js');
+        
+        // Отправляем сообщение воркеру при загрузке
+        myWorker.postMessage('Запуск работы в фоновом режиме');
+
+        // Обработка сообщений от воркера
+        myWorker.onmessage = function(e) {
+            console.log('Сообщение от воркера: ' + e.data);
+            // Можно обновить UI или выполнять другие действия
+        };
+    } else {
+        console.log('Web Workers не поддерживаются в этом браузере.');
+    }
+</script>
 </body>
 </html>
