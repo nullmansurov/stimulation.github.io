@@ -22,7 +22,7 @@
         <h2 id="modal-title">Создание стимулятора</h2>
         <label for="stimulator-name">Название стимулятора:</label>
         <input type="text" id="stimulator-name" required>
-        
+       
         <div>
             <h3>Условия запуска:</h3>
             <label><input type="checkbox" id="activate-button"> По кнопке</label>
@@ -59,23 +59,6 @@
         alert('Список очищен!'); 
     });
 
-</script>
-
-<script>
-    if (window.Worker) {
-        const myWorker = new Worker('notification.js');
-        
-        // Отправляем сообщение воркеру при загрузке
-        myWorker.postMessage('Запуск работы в фоновом режиме');
-
-        // Обработка сообщений от воркера
-        myWorker.onmessage = function(e) {
-            console.log('Сообщение от воркера: ' + e.data);
-            // Можно обновить UI или выполнять другие действия
-        };
-    } else {
-        console.log('Web Workers не поддерживаются в этом браузере.');
-    }
 </script>
 </body>
 </html>
